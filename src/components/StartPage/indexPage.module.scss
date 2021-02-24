@@ -1,0 +1,76 @@
+@import "../extends.scss";
+*,
+*:before,
+*:after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+* { box-sizing: border-box }
+
+body {
+  margin: 0;
+  @extend %font-stack-Arial;
+  padding: 0 !important;
+  background-color: white;
+}
+
+ul, li{
+  display: block;
+  padding: 0;
+  margin: 0;
+}
+a{
+  text-decoration: none;
+
+}
+a:hover{
+cursor: pointer;
+}
+li{
+  list-style: none;
+}
+h1{
+font-size: 28px;
+line-height: 32px;
+letter-spacing: 0em;
+font-weight: normal;
+}
+.container{
+    width: 1280px;
+    margin: 0 auto;
+}
+.wrapper{
+    width: 100%;
+    background-color: white;
+}
+
+.button__prime{
+  @extend %font-stack-Roboto;
+  @extend %button;
+  font-weight: bold;
+    width: 100%;
+    background-color: #F1BD45;
+  }
+  .button__secondary{
+    @extend %font-stack-Roboto;
+    @extend %button;
+    font-weight: bold;
+      width: 117px;
+      border: 1px solid #DEDEDE;
+      background-color: inherit;
+      margin-left: 11px;
+    }
+  button:active, button:focus {
+    outline: none !important;
+  }
+  button::-moz-focus-inner {
+    border: 0 !important;
+  }
+  button{
+    border: none;
+  }
+
+.content_container{
+  @extend %container__inner
+}
