@@ -1,1 +1,30 @@
 @import "../extends.scss";
+.tableRow_header {
+  .table_cell {
+    background-color: aqua;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+  }
+  .table_cell__fixed__first,
+  .table_cell__fixed__second,
+  .table_cell__fixed__third {
+    z-index: 5;
+  }
+}
+%sticky_col {
+  position: sticky;
+  z-index: 3;
+  overflow: hidden;
+}
+
+    .table_cell__fixed__first,
+    .table_cell__fixed__second,
+    .table_cell__fixed__third {
+      background-color: rgb(43, 255, 0);
+      @extend %sticky_col;
+    }
+    .table_cell__fixed__first {
+      left: 0;
+    }
+
