@@ -15,7 +15,7 @@ class TableRow {
     );
     for (let i = 0; i < this.data.length; i++) {
       if (!this.headerRow) {
-        const sort = new Sort();
+        const sort = new Sort(String(this.data[i][this.headerRow]));
         this.table_cell = create("td", "table_cell", [
           create("div", "table_cell_headerName", String(this.data[i][this.headerRow])),
           sort.generateLayout(),
