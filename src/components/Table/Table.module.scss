@@ -11,6 +11,9 @@
   .table_cell__fixed__third {
     z-index: 5;
   }
+  .tableHeader_cell__invisible{
+    visibility: hidden;
+  }
 }
 %sticky_col {
   position: sticky;

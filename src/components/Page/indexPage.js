@@ -6,10 +6,10 @@ class StartPage {
   async generateLayout() {
     await this.getData();
     const table = new Table(this.tableHeaderData, this.tableBodyData);
-    const tableData = await table.generateLayout();
-    const wrapper = create("div", "wrapper", tableData);
+    /*const tableData = await table.generateLayout();*/
+    const wrapper = create("div", "wrapper"/*, tableData*/);
     document.body.prepend(wrapper);
-    table.addStickyStyle()
+    table.generateLayout();
   }
   async getData() {
     const API = new DataAPI();
@@ -17,13 +17,13 @@ class StartPage {
     const unsortedDataHeaders = Object.entries(this.data[0]);
     this.tableHeaderData = [];
     this.tableBodyData = [];
+    this.tableHeaderData.push("№")
     for (let i = 0; i < unsortedDataHeaders.length; i++) {
       if (typeof unsortedDataHeaders[i][1] != "object") {
         this.tableHeaderData.push(unsortedDataHeaders[i][0]);
       }
     }
-    this.tableHeaderData.unshift("№")
-    for (let i = 0; i < this.data.length; i++) {
+    for (let i = 0; i < /* this.data.length*/2; i++) {
       const unsortedDataItem = Object.entries(this.data[i]);
       const dataItemWithoutArrays = [];
       for (let i = 0; i < unsortedDataItem.length; i++) {
@@ -35,6 +35,7 @@ class StartPage {
       this.tableHeaderData.map((item) => {
         tableBodyDataItem.push([item, ""]);
       });
+     // this.tableHeaderData.push("№")
       tableBodyDataItem.splice(0,1,["№",`${i+1}`]) 
       this.tableHeaderData.map((item) => {
         item[0];
