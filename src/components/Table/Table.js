@@ -1,7 +1,7 @@
 import "./Table.module.scss";
 import create from "../../utils/create.utils.js";
-
 import TableRow from "../TableRow/TableRow.js";
+
 class Table {
   constructor(tableHeaderData, tableBodyData) {
     this.tableHeaderData = tableHeaderData;
@@ -33,7 +33,6 @@ class Table {
       this.tableHeaderData.map((i) => {
         newItem.push(i);
       });
-
       for (let i = 0; i < item.length; i++) {
         let index = newItem.indexOf(item[i][0]);
         newItem.splice(index, 1, item[i]);
@@ -66,21 +65,14 @@ class Table {
         this.sortParametrIndex =  index
       }
     })
-    console.log("this.tableBodyData",this.tableBodyData);
     this.tableBodyData.sort((a,b)=>{
       return (a[this.sortParametrIndex][1] > b[this.sortParametrIndex][1] ? 1 : -1)
-    })
-    console.log("this.tableBodyData",this.tableBodyData);
-    /*this.tableBodyData.sort((a,b)=>{
-      (a[parametr] > b[parametr] ? 1 : -1)
-    })*/
-   /* this.tableBodyData
-    this.tracksToShow = this.tracksToShow
-      .concat()
-      .sort((a, b) => (a[parametr] > b[parametr] ? 1 : -1));
-    this.tableBody_container.innerHTML = "";
-    this.tableBody = new TrackListTableBody(this.tracksToShow)
-    this.tableBody.generateTableBodyLayout();*/
+    });
+    for (let i = 0; i < this.tableBodyData.length; i++) {
+      this.tableBodyData[i][0][1]=`${i+1}`
+    }
+    document.querySelector(".wrapper").innerHTML = "";
+    this.generateLayout();
   }
   filterFromLow(parametr) {
     this.sortParametrIndex = null
@@ -89,20 +81,14 @@ class Table {
         this.sortParametrIndex =  index
       }
     })
-    console.log("this.tableBodyData",this.tableBodyData);
     this.tableBodyData.sort((a,b)=>{
       return (a[this.sortParametrIndex][1] < b[this.sortParametrIndex][1] ? 1 : -1)
     })
-    console.log("this.tableBodyData",this.tableBodyData);
-   /* this.tracksToShow = this.tracksToShow
-      .concat()
-      .sort((a, b) => (b[parametr] > a[parametr] ? 1 : -1));
-    console.log("sss", this.tracksToShow[0].created);
-    this.tableBody_container.innerHTML = "";
-    this.tableBody = new TrackListTableBody(this.tracksToShow)
-    this.tableBody.generateTableBodyLayout();*/
-
-    //this.tracksToShow = this.userTracks.map((x) => x);
+    for (let i = 0; i < this.tableBodyData.length; i++) {
+      this.tableBodyData[i][0][1]=`${i+1}`
+    }
+    document.querySelector(".wrapper").innerHTML = "";
+    this.generateLayout();
   }
   addEventListeners() {
     document
