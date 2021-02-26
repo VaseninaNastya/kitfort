@@ -22,6 +22,8 @@ class TableRow {
       if(!this.headerRow){
         this.table_cell.setAttribute('draggable',"true")
         this.table_cell.classList.add("tableHeader_cell")
+      }else{
+        this.table_cell.setAttribute('data-info',String(this.data[i][0]))
       }
       /*if (String(this.data[i][this.headerRow]).indexOf("https")) {
         console.log("kdkdkd");
@@ -43,11 +45,9 @@ class TableRow {
       // const tableHeader_cell = create("td", "table_cell", String(this.data[i][this.headerRow]));
       tableHeader_row.append(this.table_cell);
     }
-//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-//надо обязательно вернуть эти стили
-    //tableHeader_row.childNodes[0].classList.add("table_cell__fixed__first");
-   // tableHeader_row.childNodes[1].classList.add("table_cell__fixed__second");
-  //  tableHeader_row.childNodes[2].classList.add("table_cell__fixed__third");
+    tableHeader_row.childNodes[0].classList.add("table_cell__fixed__first");
+    tableHeader_row.childNodes[1].classList.add("table_cell__fixed__second");
+   tableHeader_row.childNodes[2].classList.add("table_cell__fixed__third");
     return tableHeader_row;
   }
 }
