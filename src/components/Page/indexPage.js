@@ -23,7 +23,7 @@ class StartPage {
         this.tableHeaderData.push(unsortedDataHeaders[i][0]);
       }
     }
-    for (let i = 0; i < /* this.data.length*/2; i++) {
+    for (let i = 0; i < /* this.data.length*/5; i++) {
       const unsortedDataItem = Object.entries(this.data[i]);
       const dataItemWithoutArrays = [];
       for (let i = 0; i < unsortedDataItem.length; i++) {

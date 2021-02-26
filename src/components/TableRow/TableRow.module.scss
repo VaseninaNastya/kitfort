@@ -1,5 +1,24 @@
 @import "../extends.scss";
-.table_cell_flagImg{
-    width: 20px;
-}
 
+.table_cell {
+  display: flex;
+  width: 150px;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+}
+.table_row {
+  display: flex;
+  min-height: 80px;
+}
+.tableRow_body {
+  img {
+    width: 80px;
+  }
+}
+.table_cell_headerName {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  width: calc(100% - 25px);
+}
