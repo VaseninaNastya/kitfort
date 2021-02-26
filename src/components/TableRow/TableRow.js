@@ -16,17 +16,31 @@ class TableRow {
     for (let i = 0; i < this.data.length; i++) {
       if (!this.headerRow) {
         const sort = new Sort(String(this.data[i][this.headerRow]));
-        this.table_cell = create("td", "table_cell", [
-          create("div", "table_cell_headerName", String(this.data[i][this.headerRow])),
-          sort.generateLayout(),
-        ]);
-        this.table_cell.setAttribute("draggable", "true");
+        this.table_cell = create(
+          "td",
+          "table_cell",
+          [sort.generateLayout(),
+            create(
+            "div",
+            "table_cell_headerName",
+            String(this.data[i][this.headerRow])
+          )]
+        );
+        if(String(this.data[i][this.headerRow])=="№"){
+          this.table_cell.children[0].classList.add("table_cell_invisible")
+        } else{
+          this.table_cell.setAttribute("draggable", "true");
+        }
         this.table_cell.classList.add("tableHeader_cell");
       } else {
         this.table_cell = create("td", "table_cell");
         if (String(this.data[i][this.headerRow]).indexOf("https")) {
           this.table_cell.append(
-            create('span', "table_cell_content", String(this.data[i][this.headerRow]))
+            create(
+              "span",
+              "table_cell_content",
+              String(this.data[i][this.headerRow])
+            )
           );
         } else {
           this.table_cell.append(

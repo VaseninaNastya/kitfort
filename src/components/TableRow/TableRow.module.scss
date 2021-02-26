@@ -22,3 +22,10 @@
   height: 100%;
   width: calc(100% - 25px);
 }
+.table_cell_invisible{
+  visibility: hidden;
+  width: 0px;
+  img{
+    width: 0px;
+  }
+}
